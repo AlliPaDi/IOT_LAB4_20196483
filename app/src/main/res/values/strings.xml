@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TeleFutbol</string>
+    <string name="btn_ingresar">INGRESAR</string>
+    <string name="inf_creator">Elaborado por: Allison Panebra 20196483</string>
+    <string name="img_description">Imagen de futbol</string>
 </resources>
