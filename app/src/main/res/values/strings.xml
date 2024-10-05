@@ -3,4 +3,17 @@
     <string name="btn_ingresar">INGRESAR</string>
     <string name="inf_creator">Elaborado por: Allison Panebra 20196483</string>
     <string name="img_description">Imagen de futbol</string>
+
+    <!-- Fragmentos -->
+    <string name="it_ligas">Ligas</string>
+    <string name="it_posiciones">Posiciones</string>
+    <string name="it_resultados">Resultados</string>
+    <string name="frag_ligas">Ligas Europeas</string>
+    <string name="frag_posiciones">Posiciones de Liga</string>
+    <string name="frag_resultados">Resultados de los Partidos</string>
+    <string name="search_by_country">Buscar por país</string>
+    <string name="search_by_idLiga">idLiga</string>
+    <string name="search_by_temporada">Temporada</string>
+    <string name="search_by_ronda">Ronda</string>
+    <string name="search">Buscar</string>
 </resources>

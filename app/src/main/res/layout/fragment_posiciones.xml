@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".fragmentos.PosicionesFragment">
+
+    <!-- Encabezado del fragmento -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/frag_posiciones"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <!-- Buscador -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginVertical="25dp">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="14dp"
+            android:layout_marginVertical="4dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/search_by_idLiga"
+            android:textSize="14sp"
+            android:background="@drawable/rounded_search"
+            android:inputType="text"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="14dp"
+            android:layout_marginVertical="4dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/search_by_temporada"
+            android:textSize="14sp"
+            android:background="@drawable/rounded_search"
+            android:inputType="text"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="28dp"
+            android:text="@string/search"
+            android:textSize="14sp"
+            android:backgroundTint="@color/blue_dark"/>
+
+    </LinearLayout>
+
+    <!-- RecyclerView para mostrar las posiciones de los equipos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosiciones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ligasFragment"
+        android:icon="@drawable/ic_liga"
+        android:title="@string/it_ligas"/>
+    <item
+        android:id="@+id/posicionesFragment"
+        android:icon="@drawable/ic_posiciones"
+        android:title="@string/it_posiciones"/>
+    <item
+        android:id="@+id/resultadosFragment"
+        android:icon="@drawable/ic_resultados"
+        android:title="@string/it_resultados"/>
+</menu>
