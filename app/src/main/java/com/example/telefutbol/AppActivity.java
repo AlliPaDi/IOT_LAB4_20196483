@@ -1,5 +1,6 @@
 package com.example.telefutbol;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -28,4 +29,26 @@ public class AppActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
 
     }
+
+    // Se uso chat gpt para volver a la vista MainActivity
+    @Override
+    public void onBackPressed() {
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
+        NavController navController = navHostFragment.getNavController();
+
+        // Verifica si el back stack del NavController está vacío
+        if (navController.getCurrentDestination().getId() == R.id.ligasFragment) {
+            // Si estás en el LigasFragment, regresa al MainActivity
+            Intent intent = new Intent(AppActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
+        } else {
+            // Si no estás en LigasFragment, usa el back stack del NavController
+            navController.popBackStack();
+        }
+
+        super.onBackPressed();
+    }
+
 }
