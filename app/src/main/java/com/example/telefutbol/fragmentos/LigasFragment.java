@@ -17,6 +17,7 @@ import com.example.telefutbol.R;
 import com.example.telefutbol.adapter.LigasAdapter;
 import com.example.telefutbol.databinding.FragmentLigasBinding;
 import com.example.telefutbol.model.Liga;
+import com.example.telefutbol.model.LigasCountry;
 import com.example.telefutbol.model.LigasResponse;
 import com.example.telefutbol.services.SportsAPI;
 
@@ -87,23 +88,36 @@ public class LigasFragment extends Fragment {
     }
 
     private void listarLigasPorPais(SportsAPI sportsAPI, String country){
-        Call<LigasResponse> call = sportsAPI.getLigasPorPais(country); // Llamada para ligas por país
-        call.enqueue(new Callback<LigasResponse>() {
+        Call<LigasCountry> call = sportsAPI.getLigasPorPais(country); // Llamada para ligas por país
+        call.enqueue(new Callback<LigasCountry>() {
             @Override
-            public void onResponse(Call<LigasResponse> call, Response<LigasResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<Liga> ligasList = response.body().getLeagues();
-                    ligasAdapter.setLigasList(ligasList);
+            public void onResponse(Call<LigasCountry> call, Response<LigasCountry> response) {
+                if (response.isSuccessful()) {
+                    LigasCountry ligasResponse = response.body();
+                    if (ligasResponse != null && ligasResponse.getCountries() != null && !ligasResponse.getCountries().isEmpty()) {
+                        List<Liga> ligasList = ligasResponse.getCountries();
+                        ligasAdapter.setLigasList(ligasList);
+                        ligasAdapter.notifyDataSetChanged();
+                        Log.d("API Success", "Se encontraron " + ligasList.size() + " ligas para " + country);
+                    } else {
+                        // No se encontraron ligas o la lista está vacía
+                        Toast.makeText(getContext(), "No se encontraron ligas para este país", Toast.LENGTH_SHORT).show();
+                        ligasAdapter.setLigasList(new ArrayList<>()); // Limpiar el RecyclerView
+                        Log.d("API Result", "No se encontraron ligas para " + country);
+                    }
                 } else {
-                    Toast.makeText(getContext(), "No se encontraron ligas para este país", Toast.LENGTH_SHORT).show();
-
+                    // Error en la respuesta de la API
+                    Toast.makeText(getContext(), "Error en la respuesta de la API", Toast.LENGTH_SHORT).show();
+                    Log.e("API Error", "Error en la respuesta de la API: " + response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<LigasResponse> call, Throwable t) {
+            public void onFailure(Call<LigasCountry> call, Throwable t) {
+                Toast.makeText(getContext(), "Error en la solicitud de la API", Toast.LENGTH_SHORT).show();
                 Log.e("API Error", "Error en la solicitud de la API", t);
             }
         });
     }
+
 }
