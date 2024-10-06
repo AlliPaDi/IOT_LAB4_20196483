@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".fragmentos.ResultadosFragment">
 
     <!-- Encabezado del fragmento -->
@@ -15,7 +14,8 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingTop="16dp"/>
 
     <!-- Buscador -->
     <LinearLayout
@@ -23,7 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="25dp"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
 
         <EditText
             android:layout_width="0dp"
@@ -80,7 +81,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewResultados"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
