@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".fragmentos.PosicionesFragment">
 
     <!-- Encabezado del fragmento -->
@@ -15,16 +14,19 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingTop="16dp"/>
 
     <!-- Buscador -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginVertical="25dp">
+        android:layout_marginVertical="25dp"
+        android:paddingHorizontal="16dp">
 
         <EditText
+            android:id="@+id/etLigaID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,6 +40,7 @@
             android:inputType="text"/>
 
         <EditText
+            android:id="@+id/etTemporada"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -65,7 +68,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPosiciones"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
