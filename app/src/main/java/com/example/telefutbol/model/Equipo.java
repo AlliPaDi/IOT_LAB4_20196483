@@ -98,11 +98,11 @@ public class Equipo {
     }
 
     public String getRecord() {
-        return intWin + "/" + intDraw + "/" + intLoss;
+        return "PG: " + intWin + "/ PE: " + intDraw + "/ PP: " + intLoss;
     }
 
     public String getGoalStats() {
-        return intGoalsFor + "/" + intGoalsAgainst + "/" + intGoalDifference;
+        return "GA: " + intGoalsFor + "/ GC: " + intGoalsAgainst + "/ Dif: " + intGoalDifference;
     }
 }
 
